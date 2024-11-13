@@ -34,8 +34,7 @@ The infrastructure is organized in a modular way to promote reusability and main
 - **environment**: Contains environment-specific configurations, such as `main.tf` for deploying the VPC and EKS cluster.
   - `main.tf`: Defines the resources and calls the modules for provisioning.
   - `output.tf`: Outputs details of the created infrastructure components.
-  - `terraform.tfstate` and `terraform.tfstate.backup`: State files that track the current infrastructure state.
-
+  
 - **module**: Contains reusable Terraform modules for creating different components.
   - **eks**: The module to create an EKS cluster.
     - `main.tf`: Defines the EKS cluster resource.
@@ -96,12 +95,3 @@ The `output.tf` file in the `environment` directory provides the following outpu
 - **NAT Gateway ID** (if enabled)
 - **Public Route Table ID**
 - **Private Route Table IDs** (if enabled)
-
-## Best Practices
-- **State Management**: Use a remote backend (e.g., AWS S3) for storing the Terraform state in production environments.
-- **IAM Roles and Policies**: Ensure appropriate IAM permissions are configured for secure and compliant resource creation.
-- **Modularity**: Keep modules separate and reusable to promote clean and maintainable infrastructure code.
-
-## Notes
-- Always review the Terraform plan output before applying changes.
-- This setup is intended for a **development** environment. Additional considerations are needed for production, such as high availability, monitoring, and security hardening.
