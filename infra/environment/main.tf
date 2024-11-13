@@ -7,3 +7,11 @@ module "vpc" {
   region      = "eu-west-2"                 // Define AWS region
   enable_nat_gateway = true                 // Enable or disable NAT Gateway
 }
+
+module "eks" {
+  source           = "../module/eks"
+  environment      = "dev"
+  public_subnet_ids = module.vpc.public_subnet_ids
+  private_subnet_ids = module.vpc.private_subnet_ids
+}
+
