@@ -1,0 +1,14 @@
+node_modules
+target
+*.log
+*.md
+.dockerignore
+.git
+.gitignore
+.vscode
+.idea
+*.iml
+Dockerfile
+docker-compose.yml
+dist
+build
